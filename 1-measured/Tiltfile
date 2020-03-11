@@ -1,0 +1,13 @@
+# -*- mode: Python -*-
+
+# Records the current time, then kicks off a server update.
+# Normally, you would let Tilt do deploys automatically, but this
+# shows you how to set up a custom workflow that measures it.
+local_resource(
+    'deploy',
+    './record-start-time.sh',
+)
+
+docker_build('example-go-image', '.', dockerfile='deployments/Dockerfile')
+k8s_yaml('deployments/kubernetes.yaml')
+k8s_resource('example-go', port_forwards=8000)
