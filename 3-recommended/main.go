@@ -45,15 +45,17 @@ func NewExampleRouter() (*ExampleRouter, error) {
 	return router, nil
 }
 
-func (r *ExampleRouter) index(w http.ResponseWriter, req *http.Request) {
-	updateTimeString := "N/A"
+func (r *ExampleRouter) updateTimeDisplay() string {
 	if r.updateDuration != 0 {
-		updateTimeString = r.updateDuration.Truncate(100 * time.Millisecond).String()
+		return r.updateDuration.Truncate(100 * time.Millisecond).String()
 	}
+	return "N/A"
+}
 
+func (r *ExampleRouter) index(w http.ResponseWriter, req *http.Request) {
 	congrats := r.updateDuration != 0 && r.updateDuration < 2*time.Second
 	err := r.tmpl.ExecuteTemplate(w, "index.tmpl", map[string]interface{}{
-		"Duration": updateTimeString,
+		"Duration": r.updateTimeDisplay(),
 		"Congrats": congrats,
 	})
 	if err != nil {
@@ -69,6 +71,7 @@ func main() {
 	http.Handle("/", router)
 
 	log.Println("Serving on port 8000")
+	log.Printf("Deploy time: %s\n", router.updateTimeDisplay())
 	err = http.ListenAndServe(":8000", nil)
 	if err != nil {
 		log.Fatalf("Server exited with: %v", err)
