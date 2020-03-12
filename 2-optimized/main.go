@@ -7,14 +7,13 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/windmilleng/tilt-example-go/pkg/start"
 )
 
 func calcUpdateDuration() time.Duration {
-	if start.StartTime.IsZero() {
+	if StartTime.IsZero() {
 		return 0
 	}
-	return time.Since(start.StartTime)
+	return time.Since(StartTime)
 }
 
 type ExampleRouter struct {

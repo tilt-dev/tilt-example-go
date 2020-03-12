@@ -11,7 +11,7 @@ local_resource(
 local_resource(
   'example-go-compile',
   'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/tilt-example-go ./',
-  deps=['./main.go', './pkg'])
+  deps=['./main.go', './start.go'])
 
 docker_build(
   'example-go-image',
