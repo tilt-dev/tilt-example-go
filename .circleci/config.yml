@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: tiltdev/circleci-tilt:v0.13.0
+
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: apt install -y golang git
+      - run: with-kind-cluster.sh test/test.sh
