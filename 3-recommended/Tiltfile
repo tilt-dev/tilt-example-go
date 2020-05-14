@@ -5,12 +5,16 @@
 # shows you how to set up a custom workflow that measures it.
 local_resource(
     'deploy',
-    './record-start-time.sh',
+    'python record-start-time.py',
 )
+
+compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/tilt-example-go ./'
+if os.name == 'nt':
+  compile_cmd = 'build.bat'
 
 local_resource(
   'example-go-compile',
-  'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/tilt-example-go ./',
+  compile_cmd,
   deps=['./main.go', './start.go'],
   resource_deps=['deploy'])
 
