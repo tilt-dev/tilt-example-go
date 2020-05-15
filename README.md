@@ -1,6 +1,6 @@
 # tilt-example-go
 
-[![Build Status](https://circleci.com/gh/windmilleng/tilt-example-go/tree/master.svg?style=shield)](https://circleci.com/gh/windmilleng/tilt-example-go)
+[![Build Status](https://circleci.com/gh/tilt-dev/tilt-example-go/tree/master.svg?style=shield)](https://circleci.com/gh/tilt-dev/tilt-example-go)
 
 An example project that demonstrates a live-updating Go server in Kubernetes. Read [doc](https://docs.tilt.dev/example_go.html).
 

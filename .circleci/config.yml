@@ -7,5 +7,5 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - run: apt install -y golang git python
+      - run: apt update && apt install -y golang git python
       - run: with-kind-cluster.sh test/test.sh
