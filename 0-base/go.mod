@@ -1,4 +1,4 @@
-module github.com/windmilleng/tilt-example-go
+module github.com/tilt-dev/tilt-example-go
 
 go 1.14
 
