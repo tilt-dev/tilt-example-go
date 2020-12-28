@@ -58,7 +58,7 @@ func (r *ExampleRouter) index(w http.ResponseWriter, req *http.Request) {
 		"Congrats": congrats,
 	})
 	if err != nil {
-		log.Printf("index: %v")
+		log.Printf("index: %v", err)
 	}
 }
 
