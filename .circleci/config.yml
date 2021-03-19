@@ -5,7 +5,8 @@ jobs:
       - image: tiltdev/tilt:latest
 
     steps:
-      - setup_remote_docker
       - checkout
+      - setup_remote_docker:
+          version: 19.03.12
       - run: apt update && apt install -y golang git python
-      - run: with-kind-cluster.sh test/test.sh
+      - run: ctlptl create cluster kind --registry=ctlptl-registry && test/test.sh
