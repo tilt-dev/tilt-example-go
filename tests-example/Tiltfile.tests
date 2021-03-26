@@ -1,0 +1,19 @@
+# -*- mode: Python -*-
+
+# For more on the `test_go` extension:
+#     https://github.com/tilt-dev/tilt-extensions/tree/master/tests/golang
+# For more on tests in Tilt: https://docs.tilt.dev/tests_in_tilt.html
+load('ext://tests/golang', 'test_go')
+
+# these unit tests are fast/well cached, so it's easy to run them all whenever
+# a file changes and get fast feedback
+# (The `skipintegration` tag prevents this test resource from running our very
+# slow integration test suite)
+test_go('unit-tests', '.', '.',
+        recursive=True, tags=['skipintegration'])
+
+# the integration tests are slow and clunky, so make them available from the sidebar
+# and let the developer run them manually whenever it's necessary
+test_go('integration-tests', './integration', '.',
+        extra_args=["-v"],
+        trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False)
