@@ -9,6 +9,9 @@ An example project that demonstrates a live-updating Go server in Kubernetes. Re
 - [2-optimized](2-optimized): Compile Go binaries and copy them into Docker
 - [3-recommended](3-recommended): Live-update compiled binaries
 
+## Other Examples
+- [tests-example](tests-example): an example of how to use Tilt to run your tests for you as you iterate
+
 ## License
 
 Copyright 2020 tilt.dev
