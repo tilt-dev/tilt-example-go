@@ -16,4 +16,7 @@ test_go('unit-tests', '.', '.',
 # and let the developer run them manually whenever it's necessary
 test_go('integration-tests', './integration', '.',
         extra_args=["-v"],
-        trigger_mode=TRIGGER_MODE_MANUAL, auto_init=False)
+        trigger_mode=TRIGGER_MODE_MANUAL,
+
+        # run this test automatically in CI mode; otherwise, only on manual trigger
+        auto_init=config.tilt_subcommand == 'ci')

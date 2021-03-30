@@ -20,3 +20,7 @@ tilt down --file 2-optimized/Tiltfile
 echo "Testing 3-recommended"
 tilt ci --file 3-recommended/Tiltfile
 tilt down --file 3-recommended/Tiltfile
+
+echo "Testing tests-example"
+tilt ci --file tests-example/Tiltfile
+tilt down --file tests-example/Tiltfile
