@@ -71,6 +71,14 @@ func main() {
 
 	log.Println("Serving on port 8000")
 	log.Printf("Deploy time: %s\n", router.updateTimeDisplay())
+
+	go func() {
+		for {
+			time.Sleep(10 * time.Millisecond)
+			log.Println("NOW: ", time.Now())
+		}
+	}()
+
 	err = http.ListenAndServe(":8000", nil)
 	if err != nil {
 		log.Fatalf("Server exited with: %v", err)
