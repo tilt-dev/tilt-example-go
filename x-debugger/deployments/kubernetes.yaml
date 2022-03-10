@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-go
+  labels:
+    app: example-go
+spec:
+  selector:
+    matchLabels:
+      app: example-go
+  template:
+    metadata:
+      annotations:
+        container.apparmor.security.beta.kubernetes.io/example-go: unconfined
+      labels:
+        app: example-go
+    spec:
+      containers:
+      - name: example-go
+        image: example-go-image
+        securityContext:
+          capabilities:
+            add:
+              - SYS_PTRACE
+        ports:
+        - containerPort: 8000
+        - containerPort: 40000
