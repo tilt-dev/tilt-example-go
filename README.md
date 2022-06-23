@@ -14,6 +14,6 @@ An example project that demonstrates a live-updating Go server in Kubernetes. Re
 
 ## License
 
-Copyright 2020 tilt.dev
+Copyright 2022 Docker, Inc.
 
 Licensed under [the Apache License, Version 2.0](LICENSE)
