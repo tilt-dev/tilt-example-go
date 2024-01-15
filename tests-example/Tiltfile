@@ -11,7 +11,7 @@ include('Tiltfile.tests')
 # shows you how to set up a custom workflow that measures it.
 local_resource(
     'deploy',
-    'python record-start-time.py',
+    'python3 record-start-time.py',
 )
 
 compile_cmd = 'CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o build/tilt-example-go ./'
