@@ -1,4 +1,4 @@
-FROM golang:1.18
+FROM golang:1.21
 WORKDIR /app
 ADD . .
 RUN go install ./

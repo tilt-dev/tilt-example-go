@@ -5,7 +5,7 @@
 # shows you how to set up a custom workflow that measures it.
 local_resource(
     'deploy',
-    'python record-start-time.py',
+    'python3 record-start-time.py',
 )
 
 docker_build('example-go-image', '.', dockerfile='deployments/Dockerfile')

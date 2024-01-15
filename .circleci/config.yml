@@ -8,5 +8,5 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 20.10.11
-      - run: apt update && apt install -y golang git python
+      - run: apt update && apt install -y golang git python3
       - run: ctlptl create cluster kind --registry=ctlptl-registry && test/test.sh
